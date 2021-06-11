@@ -1,25 +1,69 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Container } from "react-bootstrap";
+import Input from "./components/Input";
+import "./App.css";
+import TodoLists from "./components/TodoLists";
+import Footer from "./components/Footer";
+import { useSelector } from "react-redux";
 
-function App() {
+const App = () => {
+  const { todos, filter } = useSelector((state) => state);
+
+  const display = () => {
+    switch (filter.status) {
+      case "Completed":
+        return todos.todos.map((todo) => {
+          return (
+            todo.completed && (
+              <TodoLists
+                key={todo.id}
+                id={todo.id}
+                text={todo.text}
+                completed={todo.completed}
+                color={todo.color}
+              />
+            )
+          );
+        });
+      case "Active":
+        return todos.todos.map((todo) => {
+          return (
+            !todo.completed && (
+              <TodoLists
+                key={todo.id}
+                id={todo.id}
+                text={todo.text}
+                completed={todo.completed}
+                color={todo.color}
+              />
+            )
+          );
+        });
+
+      default:
+        return todos.todos.map((todo) => {
+          return (
+            <TodoLists
+              key={todo.id}
+              id={todo.id}
+              text={todo.text}
+              completed={todo.completed}
+              color={todo.color}
+            />
+          );
+        });
+    }
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container style={{ textAlign: "center", width: "80%" }}>
+      <h1 className="text-danger mt-5 mb-4">Todos</h1>
+      <Container className="shadow bg-white border p-0">
+        <Input />
+        {todos.todos.length === 0 ? <p>No Todos!</p> : display()}
+        <Footer />
+      </Container>
+    </Container>
   );
-}
+};
 
 export default App;

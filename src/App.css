@@ -1,38 +1,87 @@
-.App {
-  text-align: center;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.form-control:focus {
+  border-color: none;
+  box-shadow: none;
+}
+span.input-group-text {
+  padding: 0 !important;
+}
+input[type="checkbox"] {
+  height: 25px;
+  width: 25px;
+}
+.mb-3.input-group-lg.form-group {
+  margin: 0 !important;
+}
+h4.ml-3.mb-0 {
+  opacity: 0.8;
+}
+button#input-group-dropdown-2 {
+  background: none;
+  color: black;
+  box-shadow: none !important;
+  border-color: rgba(0, 0, 0, 0.4) !important;
+  border-radius: 0;
+  padding: 2px 10px;
+}
+.dropdown-menu.show {
+  padding: 0;
+}
+button.mx-2.btn.btn-primary {
+  background: none;
+  color: red;
+  border: none;
+  padding: 2px;
+  font-size: 15px;
+  text-transform: uppercase;
+  font-weight: 500;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+button.mx-2.btn.btn-primary:hover,
+button.mx-2.btn.btn-primary:active,
+button.mx-2.btn.btn-primary:visited,
+button.mx-2.btn.btn-primary:focus button.mx-2.btn.btn-primary:active:focus {
+  background: none;
+  color: red;
+  border: none !important;
+  outline-color: none;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+button.my-1.btn.btn-primary {
+  width: 100%;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.actions {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
+}
+.filter-group {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: flex-start;
 }
-
-.App-link {
-  color: #61dafb;
+button.filter-btn {
+  background: none;
+  border: none;
+  margin-top: 5px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+input.checkbox-color {
+  height: 15px;
+  width: 15px;
+}
+.color {
+  text-transform: capitalize;
+}
+.label {
+  height: 15px;
+  width: 15px;
+  margin: 0 5px;
+}
+.mb-2.input-group {
+  align-items: center;
 }
